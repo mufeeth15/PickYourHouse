@@ -36,8 +36,6 @@ body {
     padding: 0 20px;
 }
 
-
-
 /* --- Header Section --- */
 .main-header {
     background-color: white;
@@ -232,6 +230,31 @@ body {
     font-size: 1.1em;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
+}
+
+.hero-buttons .explore{
+    background-color: #e60032;
+    color: white;
+    padding: 13px 20px;
+    margin-right: 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.hero-buttons .explore:hover{
+    background-color: #8C0028;
+    transition: 200ms;
+}
+
+.hero-buttons .list{
+    background-color:#000;
+    color: white;
+    padding: 13px 20px;
+    margin-right: 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
 }
 
 .hero-buttons .explore-btn:hover {
@@ -1540,10 +1563,11 @@ i.fas.fa-map-marker-alt {
 }
 
 /* Contact Form Styling */
+
 .consultation-form-block {
     flex: 1;
     padding: 40px 30px;
-    height: 650px
+    height: 650px;
     border: 1px solid var(--border-grey);
     border-radius: 5px;
     box-shadow: 0px 4px 10px rgba(171, 171, 171, 0.3);
