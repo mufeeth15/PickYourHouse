@@ -1,3 +1,29 @@
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('open');
+            // Optional: Change icon (fas fa-bars to fas fa-times)
+            const icon = menuToggle.querySelector('i');
+            if (mobileMenu.classList.contains('open')) {
+                icon.className = 'fas fa-times'; 
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        });
+
+        // Close menu when a link is clicked (optional)
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                menuToggle.querySelector('i').className = 'fas fa-bars';
+            });
+        });
+    });
+
 document.addEventListener('DOMContentLoaded', (event) => {
     // Select the form and the results container
     const searchForm = document.getElementById('property-search-form');
