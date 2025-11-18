@@ -1,3 +1,37 @@
+// ----------------------------------------------------------------
+// start Header Menu underline hover
+// ---------------------------------------------------------------- 
+
+// ----------------------------------------------------------------
+// start Header Menu underline hover
+// ----------------------------------------------------------------   
+
+// Get current page filename
+    const currentPage = window.location.pathname.split("/").pop().toLowerCase();
+
+    // Select all nav links
+    const navLinks = document.querySelectorAll(".main-nav a");
+
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute("href").toLowerCase();
+
+        // Match current page with href
+        if (currentPage === linkPage) {
+            link.classList.add("active");
+        } else {
+            link.classList.remove("active");
+        }
+    });
+
+    // Optional: If visiting root domain ("/") make home active
+    if (currentPage === "" || currentPage === "index.html") {
+        document.getElementById("nav-home").classList.add("active");
+    }
+
+// ----------------------------------------------------------------
+// End Header Menu underline hover
+// ----------------------------------------------------------------   
+
 
     document.addEventListener('DOMContentLoaded', function() {
         const menuToggle = document.querySelector('.menu-toggle');
@@ -304,142 +338,3 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeListings();
 });
 
-// Form validation for Contact Us page
-// JavaScript for Form Validation and Submission Simulation
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contactForm');
-    const messageContainer = document.getElementById('message-container');
-    
-    // The target email for simulation (as specified by the user)
-    const targetEmail = 'mohamedmufeeth21@gmail.com'; 
-
-    // Helper function to show/hide error messages and update input border style
-    const displayError = (input, message, isError) => {
-        const errorElement = document.getElementById(input.id + 'Error');
-        const borderClass = isError ? 'border-red-500' : 'border-gray-300';
-        const focusClass = isError ? 'focus:ring-red-500' : 'focus:ring-primary-teal';
-        
-        // Remove and add border/focus classes
-        input.classList.remove('border-red-500', 'border-gray-300', 'focus:ring-red-500', 'focus:ring-primary-teal');
-        input.classList.add(borderClass, focusClass);
-
-        // Show or hide the error message span
-        if (isError) {
-            errorElement.textContent = message;
-            errorElement.classList.remove('hidden');
-        } else {
-            errorElement.classList.add('hidden');
-        }
-        
-        return !isError; // Returns true if valid (no error)
-    };
-
-    // Validation for Name fields (First and Last Name)
-    const validateName = (input) => {
-        // Must contain only letters (a-z, A-Z) and spaces
-        const nameRegex = /^[a-zA-Z\s]+$/;
-        const value = input.value.trim();
-        if (value === '') {
-            return displayError(input, 'This field is required.', true);
-        }
-        return displayError(input, 'Name must contain only alphabetic characters.', !nameRegex.test(value));
-    };
-
-    // Validation for Email field
-    const validateEmail = (input) => {
-        // Standard email format validation
-        const emailRegex = /^\S+@\S+\.\S+$/;
-        const value = input.value.trim();
-        if (value === '') {
-            return displayError(input, 'This field is required.', true);
-        }
-        return displayError(input, 'Please enter a valid email address.', !emailRegex.test(value));
-    };
-
-    // Validation for Phone field
-    const validatePhone = (input) => {
-        // Optional, but if entered, must be exactly 10 digits
-        const phoneRegex = /^\d{10}$/; 
-        const value = input.value.trim();
-        
-        if (value === '') {
-            // Empty phone number is valid as it is optional
-            return displayError(input, '', false);
-        }
-        
-        return displayError(input, 'Phone number must be exactly 10 digits (numbers only).', !phoneRegex.test(value));
-    };
-
-    // Functions for showing/hiding the general success/error message
-    const resetFormMessage = () => {
-        messageContainer.classList.add('hidden');
-        messageContainer.textContent = '';
-        messageContainer.className = 'hidden p-4 rounded-xl text-center font-medium';
-    };
-
-    const showFormMessage = (message, type = 'success') => {
-        resetFormMessage();
-        if (type === 'success') {
-            messageContainer.classList.add('bg-green-100', 'text-green-800');
-        } else if (type === 'error') {
-            messageContainer.classList.add('bg-red-100', 'text-red-800');
-        }
-        messageContainer.textContent = message;
-        messageContainer.classList.remove('hidden');
-    };
-
-
-    // Main Submission Handler
-    form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        resetFormMessage();
-        
-        // Get input elements
-        const firstNameInput = document.getElementById('firstName');
-        const lastNameInput = document.getElementById('lastName');
-        const emailInput = document.getElementById('email');
-        const phoneInput = document.getElementById('phone');
-        const messageInput = document.getElementById('message');
-        const serviceInput = form.querySelector('input[name="service"]:checked');
-
-        // Perform all validation checks
-        const isFirstNameValid = validateName(firstNameInput);
-        const isLastNameValid = validateName(lastNameInput);
-        const isEmailValid = validateEmail(emailInput);
-        const isPhoneValid = validatePhone(phoneInput);
-
-        const formIsValid = isFirstNameValid && isLastNameValid && isEmailValid && isPhoneValid;
-
-        if (formIsValid) {
-            // --- SIMULATE SUCCESSFUL SUBMISSION ---
-            
-            const formData = {
-                firstName: firstNameInput.value,
-                lastName: lastNameInput.value,
-                email: emailInput.value,
-                phone: phoneInput.value,
-                service: serviceInput ? serviceInput.value : 'N/A',
-                message: messageInput.value
-            };
-
-            // Log data and display success message
-            console.log('Form Data Collected:', formData);
-            console.log('Submission simulated. Data would be sent to:', targetEmail);
-
-            showFormMessage('Message sent successfully! We will contact you at ' + formData.email + '.', 'success');
-
-            // Clear form fields
-            form.reset();
-            
-        } else {
-            // Validation failed
-            showFormMessage('Please fix the highlighted errors in the form before submitting.', 'error');
-        }
-    });
-
-    // Add blur listeners for real-time validation feedback
-    document.getElementById('firstName').addEventListener('blur', (e) => validateName(e.target));
-    document.getElementById('lastName').addEventListener('blur', (e) => validateName(e.target));
-    document.getElementById('email').addEventListener('blur', (e) => validateEmail(e.target));
-    document.getElementById('phone').addEventListener('blur', (e) => validatePhone(e.target));
-});
