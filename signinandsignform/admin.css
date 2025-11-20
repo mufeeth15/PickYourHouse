@@ -1,0 +1,116 @@
+    .login-form {
+        background:#f4f4f4;
+        font-family:Arial, sans-serif;
+        margin-top: 110px;
+        }
+
+    .heading {
+        text-align:center;
+        color:#e60032;
+        font-size: 25px;
+        margin-top:30px
+    }
+
+    .box {
+        width:450px;
+        background:#fff;
+        padding:25px;
+        margin:80px auto;
+        border-radius:10px;
+        box-shadow:0 0 10px #0002
+    }
+
+    h2 {
+        text-align:center;
+        color:#e60032;
+        margin-bottom:20px
+    }
+
+    input {
+        width:90%;
+        padding:10px;
+        margin: 11px 10px;
+        border:1px solid #ccc;
+        border-radius:5px
+    }
+
+    button {
+        width:100%;
+        padding:10px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        background:#e60032;
+        color:#fff;
+        border:none;
+        border-radius:5px;
+        cursor:pointer
+    }
+
+    button:hover {
+        background:#ff465a
+    }
+
+    a{
+        display:block;
+        text-align:center;
+        margin-top:10px;
+        color:#333;
+        text-decoration:none
+    }
+
+
+
+    /* signup form*/
+
+        body {
+        background:#f4f4f4;
+        font-family:Arial, sans-serif;
+        margin-top: 70px;
+    }
+
+    .box {
+        width:350px;
+        background:#fff;
+        padding: 20px 42px 20px 26px;
+        margin:50px auto;
+        border-radius:10px;
+        box-shadow:0 0 10px #0002
+    }
+
+    h2 {
+        text-align:center;
+        color:#e60032;
+        margin-bottom:20px
+    }
+
+    input {
+        width:100%;
+        padding:10px;
+        margin:10px 0;
+        border:1px solid #d3d3d3;
+        border-radius:5px;
+        outline:none;
+    }
+
+    button {
+        width:100%;
+        padding:10px;
+        margin-top: 10px;
+        margin-left: 10px;
+        background:#e60032;
+        color:#fff;
+        border:none;
+      border-radius:5px;
+      cursor:pointer
+    }
+
+    button:hover {
+        background:#ff465a
+    }
+
+    a {
+        display:block;
+        text-align:center;
+        margin-top:10px;
+        color:#333;
+        text-decoration:none;}

@@ -1921,7 +1921,7 @@ i.fas.fa-map-marker-alt {
 
 /* Hide card if it doesn't match the filter (handled by JS) */
 .listing-card.hidden {
-    display: none; !important;
+    display: none !important;
 }
 
 .card-image {

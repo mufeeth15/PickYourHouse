@@ -1,9 +1,5 @@
 // ----------------------------------------------------------------
 // start Header Menu underline hover
-// ---------------------------------------------------------------- 
-
-// ----------------------------------------------------------------
-// start Header Menu underline hover
 // ----------------------------------------------------------------   
 
 // Get current page filename
@@ -32,6 +28,92 @@
 // End Header Menu underline hover
 // ----------------------------------------------------------------   
 
+
+//-----------services Load More Button-------------------//
+
+/**
+ * Toggles the visibility of a batch of hidden listing cards.
+ * It hides the "Load More" button when all cards are visible.
+ */
+function loadMoreListings() {
+    // 1. Configuration: How many cards to show per click
+    const cardsPerLoad = 3; 
+    
+    // 2. Select all listing cards
+    const allCards = document.querySelectorAll('.listing-card');
+
+    let visibleCount = 0;
+    
+    let cardsShown = 0;
+    let newCardsMadeVisible = false;
+
+        const hiddenCards = document.querySelectorAll('.listing-card.hidden-card');
+    
+    for (let i = 0; i < hiddenCards.length; i++) {
+        if (cardsShown < cardsPerLoad) {
+            // Remove the 'hidden-card' class to make it visible
+            hiddenCards[i].classList.remove('hidden-card');
+            cardsShown++;
+            newCardsMadeVisible = true;
+        } else {
+            // Stop once the batch is shown
+            break;
+        }
+    }
+    
+    // 4. Update the Load More button's visibility
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    
+        const remainingHiddenCards = document.querySelectorAll('.listing-card.hidden-card').length;
+
+    if (remainingHiddenCards === 0) {
+        if (loadMoreBtn) {
+            loadMoreBtn.style.display = 'none'; // Hide the button
+            console.log("All listings are now visible. 'Load More' button hidden.");
+        }
+    } else {
+        if (newCardsMadeVisible) {
+            console.log(`Successfully loaded ${cardsShown} more listings.`);
+        } else {
+            console.log("No more hidden listings found.");
+        }
+    }
+}
+
+// Attach the function to the button (optional, as you have 'onclick' in HTML)
+// document.getElementById('load-more-btn').addEventListener('click', loadMoreListings);
+        
+//-----------services Load More Button------------------//
+
+
+
+// start  Property for sell Section//
+
+// <!-- Auto Scroll JS -->
+
+    const container = document.querySelector('.sell-card-container');
+    const nextBtn = document.querySelector('.next-btn');
+    const prevBtn = document.querySelector('.prev-btn');
+
+    // Manual scroll
+    nextBtn.addEventListener('click', () => {
+        container.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+        container.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+
+    // Auto scroll every 3 seconds
+    setInterval(() => {
+        if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
+            container.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            container.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+    }, 3000);
+
+// end Property for sell Section//
 
     document.addEventListener('DOMContentLoaded', function() {
         const menuToggle = document.querySelector('.menu-toggle');
@@ -75,6 +157,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             resultsContainer.innerHTML = ''; 
         });
     });
+
 
     // --- Search Submission Logic ---
     searchForm.addEventListener('submit', (e) => {
@@ -176,6 +259,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// --- start the blog load more button bug ---
+
+
+
 /**
  * Handles the sub-navigation tab filtering functionality.
  * When a tab is clicked, it hides all listing cards and shows only the ones
@@ -274,7 +361,7 @@ function loadMoreListings() {
         loadMoreBtn.style.display = 'none';
     }
 }
-
+    
 
 /**
  * Handles the sub-navigation tab filtering functionality.

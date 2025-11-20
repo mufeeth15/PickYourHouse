@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pick Your House - Home</title>
+    <title>Home</title>
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -13,9 +13,11 @@
 
     <header class="main-header">
         <div class="header-one">
-            <div class="logo-group">
-            <a href="index.html"></a><img src="public/PYH.webp" alt="Pick Your House Logo" class="main-logo"></a>
-            </div>
+        <div class="logo-group">
+            <a href="index.html">
+                <img src="public/PYH.webp" alt="Pick Your House Logo" class="main-logo">
+            </a>
+        </div>
             <nav class="main-nav">
                 <ul>
                     <li><a id="nav-home" href="index.html" class="active">Home</a></li>
@@ -181,8 +183,7 @@
             <h2>Exclusive Property Highlight</h2>
         </div>
         <div class="highlight-content">
-            <button class="scroll-btn prev-btn">←</button>
-            <div class="highlight-card-wrapper">    
+            <div class="highlight-card-wrapper" id="highlight-wrapper">    
                 <div class="highlight-card for-rent">
                     <div class="card-image-box">
                         <img src="public/1183405_20-350x350.jpg" alt="Exclusive 3 BHK">
@@ -200,24 +201,24 @@
                         </div>
                         <div class="card-footer">
                             <span class="price">₹55,000K</span>
-                            <a href="#" class="view-details">View Details</a>
+                            <a href="#" class="view-details-1">View Details</a>
                         </div>
                     </div>
-
                 
+                    
                 </div>
                 </div>
-            <button class="scroll-btn next-btn">→</button>
         </div>
     </section>
 
+    
         <!-- End Exclusive Property Highlight -->
          
         <!-- Property for sell -->
 
     <section class="featured-sell-section">
         <div class="section-header">
-
+            <h4>FATURE LISTING</h4>
             <h2>Property for sell</h2>
         </div>
         <div class="sell-cards-wrapper">
@@ -236,7 +237,7 @@
                         <div><i class="fas fa-ruler-combined"></i> 950 SqFt</div>
                     </div>
                     <div class="card-footer">
-                        <span class="price">₹10,000,000</span>
+                        <span class="price">₹35,000 / Month</span>
                         <a href="#" class="view-details">View Details</a>
                     </div>
                 </div>
@@ -254,7 +255,7 @@
                         <div><i class="fas fa-ruler-combined"></i> 950 SqFt</div>
                     </div>
                     <div class="card-footer">
-                        <span class="price">₹10,000,000</span>
+                        <span class="price">₹66,00,000</span>
                         <a href="#" class="view-details">View Details</a>
                     </div>
                 </div>
@@ -271,10 +272,46 @@
                         <div><i class="fas fa-ruler-combined"></i> 1100 SqFt</div>
                     </div>
                     <div class="card-footer">
-                        <span class="price">₹15,000,000</span>
+                        <span class="price">₹1,00,00,000</span>
                         <a href="#" class="view-details">View Details</a>
                     </div>
                 </div>
+
+                <div class="sell-card">
+                <div class="card-image-box">
+                    <img src="public/1183405_20-350x350.jpg" alt="Luxury Villa">
+                    <span class="feature-tag">FEATURED</span>
+                </div>
+                <h3>Luxury 3 BHK Villa</h3>
+                <p class="location">Panvel, Navi Mumbai</p>
+                <div class="details">
+                    <div><i class="fas fa-bed"></i> 4 Bedrooms</div>
+                    <div><i class="fas fa-bath"></i> 4 Bathrooms</div>
+                    <div><i class="fas fa-ruler-combined"></i> 2000 SqFt</div>
+                </div>
+                <div class="card-footer">
+                    <span class="price">₹1,50,00,000</span>
+                    <a href="#" class="view-details">View Details</a>
+                </div>
+            </div>
+
+            <div class="sell-card">
+                <div class="card-image-box">
+                    <img src="public/1183405_20-350x350.jpg" alt="Luxury Villa">
+                    <span class="feature-tag">FEATURED</span>
+                </div>
+                <h3>Luxury 4 BHK Villa</h3>
+                <p class="location">Panvel, Navi Mumbai</p>
+                <div class="details">
+                    <div><i class="fas fa-bed"></i> 4 Bedrooms</div>
+                    <div><i class="fas fa-bath"></i> 4 Bathrooms</div>
+                    <div><i class="fas fa-ruler-combined"></i> 2000 SqFt</div>
+                </div>
+                <div class="card-footer">
+                    <span class="price">₹2,50,00,000</span>
+                    <a href="#" class="view-details">View Details</a>
+                </div>
+            </div>
                 </div>
             <button class="scroll-btn next-btn">→</button>
         </div>
