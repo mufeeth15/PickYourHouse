@@ -1,9 +1,9 @@
 /* --- Root Variables & Base Styles --- */
 :root {
     /* Updated Primary Color to match the deep red/maroon from the logo/buttons */
-    --primary-color: #890025; 
+    --primary-color: #890025;
     /* Updated Secondary/Text Color to match the dark text/footer background */
-    --secondary-color: #1A1A2E; 
+    --secondary-color: #1A1A2E;
     --text-color: #333;
     --light-bg: #F8F9FA;
     --max-width: 1200px;
@@ -14,7 +14,7 @@
     padding: 0;
     box-sizing: border-box;
     /* Using a professional, clean font stack */
-    font-family: 'Poppins', sans-serif; 
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -36,11 +36,11 @@ body {
     padding: 0 20px;
 }
 
-.property h4{
+.property h4 {
     text-align: center;
 }
 
-.featured-sell-section h4{
+.featured-sell-section h4 {
     text-align: center;
     font-size: 14px;
     font-family: poppins, sans-serif;
@@ -51,11 +51,11 @@ body {
 .main-header {
     background-color: white;
     /* Light shadow, as seen in the reference image */
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.08); 
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.08);
     padding: 10px 0;
 }
 
-.header-actions a{
+.header-actions a {
     background-color: #890025;
     color: rgb(240, 240, 240);
     font-weight: 600;
@@ -65,7 +65,7 @@ body {
     text-decoration: none;
 }
 
-.header-actions a:hover{
+.header-actions a:hover {
     background-color: #6e001e;
     transition-duration: 200ms;
     box-shadow: 0 4px 8px rgba(44, 48, 52, 0.3);
@@ -85,9 +85,9 @@ body {
 
 .main-logo {
     /* Use the key logo proportions */
-    height: 80px; 
+    height: 80px;
     margin-right: 70px;
-        
+
 }
 
 .site-name {
@@ -98,7 +98,7 @@ body {
 
 .secondary-logo {
     /* Placeholder for the second logo/icon in the header, keep it small */
-    height: 35px; 
+    height: 35px;
     margin-right: 20px;
     opacity: 0.8;
 }
@@ -121,9 +121,11 @@ body {
 /* Underline Hover Animation & Active State */
 .main-nav a {
     /* Ensure the link is positioned relative so ::after can be absolute */
-    position: relative; 
-    display: inline-block; /* Allows transformation to work well */
-    text-decoration: none; /* In case default underline is present */
+    position: relative;
+    display: inline-block;
+    /* Allows transformation to work well */
+    text-decoration: none;
+    /* In case default underline is present */
     color: inherit;
 }
 
@@ -131,25 +133,28 @@ body {
     content: '';
     position: absolute;
     height: 2px;
-    
+
     /* Initially hide the underline */
-    width: 0; 
-    
+    width: 0;
+
     display: block;
     margin-top: 5px;
-    background: var(--primary-color, #B50031); /* Use primary color, fallback to a red */
+    background: var(--primary-color, #B50031);
+    /* Use primary color, fallback to a red */
     transition: width 0.3s ease;
-    
+
     /* Center the underline */
     left: 50%;
     transform: translateX(-50%);
-    bottom: 0; /* Ensures it sits at the bottom of the link */
+    bottom: 0;
+    /* Ensures it sits at the bottom of the link */
 }
 
 /* 1. Show the Underline and Color the Text for the ACTIVE Page */
 .main-nav a.active::after {
     /* Set width to show the underline */
-    width: calc(100% - 30px); /* Leaves padding space on the sides */
+    width: calc(100% - 30px);
+    /* Leaves padding space on the sides */
 }
 
 .main-nav a.active {
@@ -158,7 +163,8 @@ body {
 
 /* 2. Show the Underline and Color the Text on HOVER (Animation) */
 .main-nav a:hover::after {
-    width: calc(100% - 30px); /* Animates the underline on hover */
+    width: calc(100% - 30px);
+    /* Animates the underline on hover */
 }
 
 .main-nav a:hover {
@@ -176,7 +182,7 @@ body {
     color: white;
     border: none;
     padding: 15px 30px;
-    border-radius: 50px; 
+    border-radius: 50px;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
@@ -184,7 +190,7 @@ body {
 }
 
 .enquiry-btn:hover {
-    background-color: #8C0028; 
+    background-color: #8C0028;
     transform: translateY(-1px);
 }
 
@@ -248,7 +254,7 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-.hero-buttons .explore{
+.hero-buttons .explore {
     background-color: #e60032;
     color: white;
     padding: 13px 20px;
@@ -258,13 +264,13 @@ body {
     font-weight: 600;
 }
 
-.hero-buttons .explore:hover{
+.hero-buttons .explore:hover {
     background-color: #8C0028;
     transition: 200ms;
 }
 
-.hero-buttons .list{
-    background-color:#000;
+.hero-buttons .list {
+    background-color: #000;
     color: white;
     padding: 13px 20px;
     margin-right: 20px;
@@ -292,7 +298,8 @@ body {
 
 .image-box img {
     width: 600px;
-    height: 400px; /* Uniform height for hero images */
+    height: 400px;
+    /* Uniform height for hero images */
     border-radius: 20px;
     object-fit: cover;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -362,7 +369,8 @@ body {
     border-radius: 8px;
     font-size: 1em;
     color: var(--secondary-color);
-    appearance: none; /* Removes default select arrow */
+    appearance: none;
+    /* Removes default select arrow */
 }
 
 .search-btn {
@@ -392,7 +400,8 @@ body {
 /* --- Discover Your Next Property Section --- */
 /* Basic Reset and Variables for Easy Editing */
 :root {
-    --primary-red: #e60032; /* The main bright red color */
+    --primary-red: #e60032;
+    /* The main bright red color */
     --light-grey: #f8f8f8;
     --dark-text: #222;
     --light-text: #fff;
@@ -418,7 +427,7 @@ body {
     margin-bottom: 5px;
 }
 
-.header-text h1{
+.header-text h1 {
     padding-bottom: 20px;
 }
 
@@ -432,28 +441,34 @@ body {
 /* --- Cards Container (Flexbox for Layout) --- */
 .cards-container {
     display: flex;
-    gap: 20px; /* Space between cards */
+    gap: 20px;
+    /* Space between cards */
     justify-content: center;
 }
 
 /* --- Individual Card Styling --- */
 .property-card {
-    flex: 1; /* Makes all cards take up equal space */
+    flex: 1;
+    /* Makes all cards take up equal space */
     max-width: 350px;
-    text-decoration: none; /* Remove underline from links */
+    text-decoration: none;
+    /* Remove underline from links */
     display: block;
     padding: 55px;
     background-color: var(--light-text);
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-    position: relative; /* For the absolute positioning of the icon box */
-    overflow: hidden; /* Important for the background effect */
+    position: relative;
+    /* For the absolute positioning of the icon box */
+    overflow: hidden;
+    /* Important for the background effect */
 }
 
 /* Hover Effect for all cards */
 .property-card:hover {
-    transform: translateY(-5px); /* Lift the card slightly */
+    transform: translateY(-5px);
+    /* Lift the card slightly */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
@@ -469,7 +484,8 @@ body {
 }
 
 .property-card.active:hover {
-    transform: scale(1.02); /* Slight increase on hover for the active card */
+    transform: scale(1.02);
+    /* Slight increase on hover for the active card */
 }
 
 
@@ -477,8 +493,10 @@ body {
 .card-title {
     font-size: 1.5rem;
     font-weight: bold;
-    margin-top: 130px; /* Push title down below the icon box area */
-    color: var(--dark-text); /* Default text color */
+    margin-top: 130px;
+    /* Push title down below the icon box area */
+    color: var(--dark-text);
+    /* Default text color */
     transition: color var(--transition-speed);
 }
 
@@ -496,10 +514,13 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center; /* Vertical alignment */
-    justify-content: space-between; /* Space out the main icon and the arrow */
+    align-items: center;
+    /* Vertical alignment */
+    justify-content: space-between;
+    /* Space out the main icon and the arrow */
     padding: 30px;
-    pointer-events: none; /* Allows clicks to pass through to the parent anchor tag */
+    pointer-events: none;
+    /* Allows clicks to pass through to the parent anchor tag */
 }
 
 .card-icon {
@@ -536,6 +557,7 @@ body {
 .property-card:not(.active):hover .arrow-icon {
     stroke: var(--dark-text);
 }
+
 .property-card:not(.active):hover .card-title {
     color: var(--primary-red);
 }
@@ -564,9 +586,11 @@ body {
 /* Media Query for Responsiveness */
 @media (max-width: 900px) {
     .cards-container {
-        flex-direction: column; /* Stack cards vertically on smaller screens */
+        flex-direction: column;
+        /* Stack cards vertically on smaller screens */
         align-items: center;
     }
+
     .property-card {
         width: 90%;
         max-width: 500px;
@@ -604,7 +628,7 @@ body {
 .highlight-card-wrapper {
     flex: 1;
     /* Key property: allows content to exceed container and be scrollable */
-    overflow-x: auto; 
+    overflow-x: auto;
     /* Key property: ensures all highlight-cards stay on one line */
     white-space: nowrap;
     padding: 10px 0;
@@ -621,10 +645,12 @@ body {
 /* --- FIX: Updated Card Display for Scrolling --- */
 .highlight-card {
     /* Ensures the card aligns horizontally */
-    display: inline-flex; 
-    width: 95%; 
-    max-width: 1000px; /* Keep max-width for large screens */
-    min-width: 700px; /* Use min-width to prevent cards from becoming too small */
+    display: inline-flex;
+    width: 95%;
+    max-width: 1000px;
+    /* Keep max-width for large screens */
+    min-width: 700px;
+    /* Use min-width to prevent cards from becoming too small */
 
     background-color: white;
     border-radius: 10px;
@@ -634,13 +660,13 @@ body {
 
     gap: 40px;
     /* Ensures content within the card wraps normally */
-    white-space: normal; 
+    white-space: normal;
     /* Space between cards in the scroll view (essential when using inline-flex) */
-    margin-left: 60px; 
+    margin-left: 60px;
 }
 
 /* Retaining the original styles below */
-.image-box{
+.image-box {
     width: 500px;
     min-height: 200px
 }
@@ -666,7 +692,8 @@ body {
     border-radius: 8px;
 }
 
-.feature-tag, .type-tag {
+.feature-tag,
+.type-tag {
     position: absolute;
     padding: 6px 15px;
     font-size: 0.8em;
@@ -679,13 +706,13 @@ body {
 .feature-tag {
     top: 20px;
     left: 20px;
-    background-color: #3498DB; 
+    background-color: #3498DB;
 }
 
 .type-tag {
     top: 20px;
     right: 20px;
-    background-color: var(--primary-color); 
+    background-color: var(--primary-color);
 }
 
 .highlight-card .card-text {
@@ -719,7 +746,7 @@ body {
     margin-bottom: 20px;
 }
 
-.highlight-details > div {
+.highlight-details>div {
     font-weight: 500;
     color: var(--secondary-color);
     font-size: 0.9em;
@@ -744,7 +771,7 @@ body {
 .sell-card-container {
     flex: 1;
     display: flex;
-    overflow-x: auto; 
+    overflow-x: auto;
     gap: 30px;
     padding: 10px 0;
     -ms-overflow-style: none;
@@ -757,7 +784,7 @@ body {
 }
 
 .sell-card {
-    min-width: 350px; 
+    min-width: 350px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -907,7 +934,8 @@ body {
     overflow: hidden;
     border-radius: 10px;
     min-width: 250px;
-    height: 350px; /* Fixed height for visual balance */
+    height: 350px;
+    /* Fixed height for visual balance */
 }
 
 .image-hover-box img {
@@ -924,7 +952,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(181, 0, 49, 0.7); /* Primary color overlay */
+    background-color: rgba(181, 0, 49, 0.7);
+    /* Primary color overlay */
     color: white;
     display: flex;
     justify-content: center;
@@ -954,12 +983,15 @@ body {
 
 /* Main Title */
 .faq-container h1 {
-    font-size: 40px; /* Large font size as in the image */
-    font-weight: 900; /* Bold/Heavy font weight */
+    font-size: 40px;
+    /* Large font size as in the image */
+    font-weight: 900;
+    /* Bold/Heavy font weight */
     color: #000;
     margin-bottom: 50px;
     padding-bottom: 10px;
-    text-align: center; /* Align to the left if container is wide */
+    text-align: center;
+    /* Align to the left if container is wide */
 
 }
 
@@ -975,7 +1007,8 @@ body {
 .faq-icon {
     display: inline-block;
     margin-right: 15px;
-    line-height: 1; /* Helps align the icon and text */
+    line-height: 1;
+    /* Helps align the icon and text */
 }
 
 .faq-group-header h2 {
@@ -987,7 +1020,8 @@ body {
 
 /* FAQ Item Styling */
 .faq-item {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Thin grey line */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    /* Thin grey line */
 }
 
 /* Question Button */
@@ -995,7 +1029,8 @@ body {
     background: none;
     border: none;
     width: 100%;
-    padding: 20px 0; /* Padding for the top and bottom */
+    padding: 20px 0;
+    /* Padding for the top and bottom */
     font-size: 17px;
     font-weight: 600;
     color: #8C0028;
@@ -1010,31 +1045,36 @@ body {
 /* Toggle Icon */
 .toggle-icon {
     font-size: 20px;
-    font-weight: 400; /* Not too bold */
+    font-weight: 400;
+    /* Not too bold */
     line-height: 1;
     transition: transform 0.3s;
 }
 
 /* Active State for Question */
 .faq-question.active {
-    font-weight: 700; /* Make the question text bold when open */
+    font-weight: 700;
+    /* Make the question text bold when open */
 }
 
 /* Rotate icon when active (open) */
 .faq-question.active .toggle-icon {
-    transform: rotate(45deg); /* Rotates the '+' to look like an 'x' */
+    transform: rotate(45deg);
+    /* Rotates the '+' to look like an 'x' */
 }
 
 /* Answer Container - Hidden by default */
 .faq-answer-container {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out; /* Smooth slide-out */
+    transition: max-height 0.3s ease-out;
+    /* Smooth slide-out */
 }
 
 /* Answer Text */
 .faq-answer {
-    padding: 0 0 20px 0; /* Padding below the answer text */
+    padding: 0 0 20px 0;
+    /* Padding below the answer text */
     margin: 0;
     font-size: 15px;
     line-height: 1.5;
@@ -1044,8 +1084,10 @@ body {
 /* The below class is added by JavaScript when open */
 .faq-answer-container.show {
     /* JavaScript will set the max-height dynamically */
-    max-height: 200px; /* Fallback/Large value, JS handles the real height */
-    transition: max-height 0.3s ease-in; /* Smooth slide-in */
+    max-height: 200px;
+    /* Fallback/Large value, JS handles the real height */
+    transition: max-height 0.3s ease-in;
+    /* Smooth slide-in */
     margin-bottom: 40px;
 }
 
@@ -1056,10 +1098,11 @@ body {
 
 /* --- 1. Tablet (max-width: 1024px) --- */
 @media (max-width: 1024px) {
+
     /* --- Header --- */
     .main-nav {
         /* Hide navigation to make room for logo/action button */
-        display: none; 
+        display: none;
     }
 
     .main-logo {
@@ -1070,7 +1113,7 @@ body {
     .site-name {
         font-size: 1em;
     }
-    
+
     .enquiry-btn {
         padding: 10px 20px;
         font-size: 0.9em;
@@ -1100,7 +1143,8 @@ body {
     }
 
     .hero-images {
-        grid-template-columns: 1fr; /* Stack images on top of each other */
+        grid-template-columns: 1fr;
+        /* Stack images on top of each other */
     }
 
     .image-box img {
@@ -1114,7 +1158,8 @@ body {
 
     /* --- Property Discovery Cards --- */
     .cards-container {
-        flex-direction: column; /* Stack cards vertically */
+        flex-direction: column;
+        /* Stack cards vertically */
         align-items: center;
     }
 
@@ -1122,27 +1167,30 @@ body {
         width: 90%;
         max-width: 500px;
     }
-    
+
     /* --- Exclusive Highlight Card (Horizontal Scroll) --- */
     .highlight-content {
         gap: 5px;
     }
+
     .highlight-card {
         /* Adjusted width for horizontal scroll to show 1 card nicely */
-        min-width: 90%; 
+        min-width: 90%;
         width: 90%;
         padding: 20px;
-        flex-direction: column; /* Stack image and text vertically inside the card */
+        flex-direction: column;
+        /* Stack image and text vertically inside the card */
     }
-    
+
     .scroll-btn {
         /* Hide scroll buttons on small screen if they aren't necessary for touch scroll */
         display: none;
     }
-    
+
     .card-image-box {
         min-width: 100%;
     }
+
     .card-image-box img {
         min-height: 200px;
     }
@@ -1153,7 +1201,8 @@ body {
 
     /* --- Featured Sell Cards (Horizontal Scroll) --- */
     .sell-card {
-        min-width: 300px; /* Ensure cards remain scrollable */
+        min-width: 300px;
+        /* Ensure cards remain scrollable */
     }
 
     /* --- Dream Home Section --- */
@@ -1169,9 +1218,10 @@ body {
     }
 
     .stats-grid {
-        grid-template-columns: 1fr; /* Stack stats vertically */
+        grid-template-columns: 1fr;
+        /* Stack stats vertically */
     }
-    
+
     .image-hover-box {
         min-width: 100%;
     }
@@ -1188,16 +1238,22 @@ body {
     .main-header {
         padding: 5px 0;
     }
+
     .header-one {
         padding: 0 10px;
     }
+
     .main-logo {
         height: 50px;
         margin-right: 5px;
     }
-    .site-name, .secondary-logo {
-        display: none; /* Hide secondary logo and site name on very small screens */
+
+    .site-name,
+    .secondary-logo {
+        display: none;
+        /* Hide secondary logo and site name on very small screens */
     }
+
     .enquiry-btn {
         padding: 8px 15px;
         font-size: 0.8em;
@@ -1207,15 +1263,19 @@ body {
     .hero-banner {
         margin: 20px auto;
     }
+
     .hero-text h1 {
         font-size: 2em;
     }
+
     .hero-text p {
         font-size: 1em;
     }
+
     .hero-buttons {
         flex-direction: column;
     }
+
     .hero-buttons .explore-btn,
     .hero-buttons .list-btn {
         width: 100%;
@@ -1225,20 +1285,25 @@ body {
     }
 
     .hero-images {
-        display: none; /* Hide images on mobile to save space */
+        display: none;
+        /* Hide images on mobile to save space */
     }
 
     /* --- Search Filter --- */
     .search-form-container {
-        flex-direction: column; /* Stack search inputs vertically */
+        flex-direction: column;
+        /* Stack search inputs vertically */
         gap: 10px;
     }
+
     .search-input-group {
         width: 100%;
     }
+
     .search-btn {
         width: 100%;
     }
+
     .tab-btn {
         padding: 10px 15px;
         font-size: 0.9em;
@@ -1246,43 +1311,50 @@ body {
 
     /* --- Exclusive Highlight Card (Horizontal Scroll) --- */
     .highlight-card {
-        min-width: 100%; 
+        min-width: 100%;
         width: 100%;
     }
+
     .highlight-details {
-        flex-wrap: wrap; /* Wrap details onto multiple lines */
+        flex-wrap: wrap;
+        /* Wrap details onto multiple lines */
         justify-content: flex-start;
     }
 
     /* --- Featured Sell Cards (Horizontal Scroll) --- */
     .sell-card {
-        min-width: 85vw; /* Use viewport width for better control */
+        min-width: 85vw;
+        /* Use viewport width for better control */
     }
-    
+
     /* --- Trust Score and Turning Dreams Section --- */
     .dream-home-section {
         padding: 20px 10px;
     }
+
     .trust-score-box {
         min-width: 150px;
     }
+
     .trust-score-box .score {
         font-size: 3em;
     }
-    
+
     .text-content h2 {
         font-size: 1.8em;
     }
-    
+
     .image-hover-box {
-        height: 250px; /* Reduce height */
+        height: 250px;
+        /* Reduce height */
     }
-    
+
     /* --- FAQ Section --- */
     .faq-container h1 {
         font-size: 30px;
         margin-bottom: 30px;
     }
+
     .faq-question {
         font-size: 16px;
         padding: 15px 0;
@@ -1323,7 +1395,7 @@ p {
     display: flex;
     align-items: center;
     gap: 40px;
-    padding-top:0px;
+    padding-top: 0px;
 }
 
 .why-choose-us-image {
@@ -1449,8 +1521,9 @@ p {
     text-align: center;
 
 }
+
 .vision-block:hover,
-.mission-block:hover{
+.mission-block:hover {
     background-color: #d8d8d8;
     transition: background-color 0.3s;
 }
@@ -1481,14 +1554,14 @@ p {
     justify-content: space-between;
     gap: 30px;
     text-align: center;
-    
+
 }
 
 
 .feature-item {
     padding: 30px 20px 30px 20px;
     flex: 1;
-    background-color: #eaeaea; 
+    background-color: #eaeaea;
     border-radius: 10px;
 }
 
@@ -1512,7 +1585,8 @@ p {
 /* --- 4. Get Free Consultation Section --- */
 .get-consultation-section {
     padding: 60px 0;
-    background-color: var(--text-light); /* Assuming white background */
+    background-color: var(--text-light);
+    /* Assuming white background */
 }
 
 .get-consultation-section .container {
@@ -1548,7 +1622,8 @@ p {
 .contact-detail-item i {
     font-size: 1.5em;
     color: var(--primary-red);
-    background-color: #fce4e4; /* Light red/pink background for icon */
+    background-color: #fce4e4;
+    /* Light red/pink background for icon */
     padding: 10px 1px 10px 3px;
     border-radius: 50%;
     margin: 10px 20px;
@@ -1571,6 +1646,7 @@ i.fas.fa-map-marker-alt {
     font-size: 0.9em;
     color: #555;
 }
+
 /* contact-detail-item-2 */
 
 .contact-detail-item-2 {
@@ -1583,8 +1659,9 @@ i.fas.fa-map-marker-alt {
 .contact-detail-item-2 i {
     font-size: 1.5em;
     color: var(--primary-red);
-    background-color: #fce4e4; /* Light red/pink background for icon */
-    padding: 15px 10px 12px px ;
+    background-color: #fce4e4;
+    /* Light red/pink background for icon */
+    padding: 15px 10px 12px px;
     border-radius: 50%;
     margin: 10px 20px;
 }
@@ -1647,7 +1724,7 @@ i.fas.fa-map-marker-alt {
 .consultation-form textarea {
     resize: vertical;
     width: 500px;
-    }
+}
 
 .consultation-form input::placeholder,
 .consultation-form textarea::placeholder {
@@ -1677,9 +1754,10 @@ i.fas.fa-map-marker-alt {
 }
 
 .submit-button:hover {
-    background-color: #a72323; /* Darker red on hover */
+    background-color: #a72323;
+    /* Darker red on hover */
     color: #fff;
-    
+
 }
 
 /* ======================================= */
@@ -1688,6 +1766,7 @@ i.fas.fa-map-marker-alt {
 
 /* --- 1. Tablet (max-width: 992px) --- */
 @media (max-width: 992px) {
+
     /* Base Container Padding */
     .container {
         padding: 0 20px;
@@ -1695,7 +1774,8 @@ i.fas.fa-map-marker-alt {
 
     /* --- 1. Why Choose Us? Section --- */
     .why-choose-us-section .container {
-        flex-direction: column; /* Stack image and text */
+        flex-direction: column;
+        /* Stack image and text */
         gap: 30px;
     }
 
@@ -1719,36 +1799,41 @@ i.fas.fa-map-marker-alt {
 
     /* --- 2. Who We Are Section --- */
     .mission-vision-container {
-        flex-direction: column; /* Stack mission and vision */
+        flex-direction: column;
+        /* Stack mission and vision */
         align-items: center;
     }
 
     .mission-block,
     .vision-block {
         max-width: 90%;
-        margin-right: 0; /* Reset margin */
+        margin-right: 0;
+        /* Reset margin */
         margin-bottom: 20px;
     }
-    
+
     .who-we-are-section .section-title p {
         margin-bottom: 30px;
     }
 
     /* --- 3. Real Estate Simple Section --- */
     .features-grid {
-        flex-wrap: wrap; /* Allow features to wrap */
+        flex-wrap: wrap;
+        /* Allow features to wrap */
         justify-content: center;
         gap: 20px;
     }
 
     .feature-item {
-        flex: 0 0 calc(50% - 10px); /* Two items per row */
+        flex: 0 0 calc(50% - 10px);
+        /* Two items per row */
         max-width: calc(50% - 10px);
     }
-    
+
     /* --- 4. Get Free Consultation Section --- */
     .get-consultation-section .container {
-        flex-direction: column; /* Stack info and form */
+        flex-direction: column;
+        /* Stack info and form */
         gap: 30px;
     }
 
@@ -1760,14 +1845,14 @@ i.fas.fa-map-marker-alt {
         text-align: center;
         margin-top: 10px;
     }
-    
+
     .contact-detail-list {
         display: flex;
         justify-content: space-around;
         gap: 10px;
         flex-wrap: wrap;
     }
-    
+
     .contact-detail-item,
     .contact-detail-item-2 {
         margin-bottom: 0;
@@ -1776,13 +1861,15 @@ i.fas.fa-map-marker-alt {
 
     .consultation-form-block {
         padding: 30px 20px;
-        height: auto; /* Allow height to adjust */
+        height: auto;
+        /* Allow height to adjust */
     }
 }
 
 
 /* --- 2. Mobile (max-width: 600px) --- */
 @media (max-width: 600px) {
+
     /* Base Styles */
     h2 {
         font-size: 1.8em;
@@ -1793,12 +1880,12 @@ i.fas.fa-map-marker-alt {
     .why-choose-us-section {
         padding: 40px 0;
     }
-    
+
     .why-choose-us-image img {
         width: 100%;
         height: 250px;
     }
-    
+
     .why-choose-us-text h2 {
         font-size: 1.5em;
     }
@@ -1807,7 +1894,7 @@ i.fas.fa-map-marker-alt {
     .who-we-are-section {
         padding: 40px 0;
     }
-    
+
     .mission-block,
     .vision-block {
         max-width: 100%;
@@ -1818,20 +1905,22 @@ i.fas.fa-map-marker-alt {
     .simple-real-estate-section {
         padding: 40px 0;
     }
-    
+
     .features-grid {
-        flex-direction: column; /* Stack features vertically */
+        flex-direction: column;
+        /* Stack features vertically */
         gap: 15px;
     }
 
     .feature-item {
-        flex: 1 1 100%; 
+        flex: 1 1 100%;
         max-width: 100%;
     }
-    
+
     /* --- 4. Get Free Consultation Section --- */
     .contact-detail-list {
-        flex-direction: column; /* Stack contact details vertically again */
+        flex-direction: column;
+        /* Stack contact details vertically again */
         align-items: flex-start;
         padding-left: 20px;
     }
@@ -1841,10 +1930,11 @@ i.fas.fa-map-marker-alt {
     }
 
     .form-row {
-        flex-direction: column; /* Stack form inputs vertically */
+        flex-direction: column;
+        /* Stack form inputs vertically */
         gap: 0;
     }
-    
+
     .consultation-form input,
     .consultation-form textarea {
         margin: 5px 0;
@@ -1853,12 +1943,12 @@ i.fas.fa-map-marker-alt {
 }
 
 /* ------------------------------------------------------ */
-                /* End Responsive Style End */
+/* End Responsive Style End */
 /* ------------------------------------------------------ */
 
-    /* Services Content Sections */
+/* Services Content Sections */
 
-    .container {
+.container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
@@ -1866,7 +1956,8 @@ i.fas.fa-map-marker-alt {
 
 /* SUB-NAVIGATION (Filter Tabs) */
 .sub-nav {
-    background-color: white; /* White background for the visible tab bar */
+    background-color: white;
+    /* White background for the visible tab bar */
     margin-top: 30px;
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
@@ -1877,12 +1968,13 @@ i.fas.fa-map-marker-alt {
     /* Center the tabs under the main content area */
     width: 90%;
     max-width: 1200px;
-    margin: 40px auto 40px ;
+    margin: 40px auto 40px;
     align-items: center;
 }
 
 .sub-nav-item {
-    color: #555; /* Dark gray text */
+    color: #555;
+    /* Dark gray text */
     padding: 5px 0;
     font-weight: bold;
     text-decoration: none;
@@ -1892,8 +1984,10 @@ i.fas.fa-map-marker-alt {
 }
 
 .sub-nav-item.active {
-    color: #c00000; /* Dominant Red Color */
-    border-bottom: 3px solid #c00000; /* Red underline for active tab */
+    color: #c00000;
+    /* Dominant Red Color */
+    border-bottom: 3px solid #c00000;
+    /* Red underline for active tab */
 }
 
 /* LISTINGS GRID */
@@ -1905,7 +1999,7 @@ i.fas.fa-map-marker-alt {
 .listings-grid {
     display: grid;
     /* Three columns on larger screens, adjusting for smaller ones */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
@@ -1915,7 +2009,8 @@ i.fas.fa-map-marker-alt {
     /* Remove box shadow to match the flat look of the reference */
     overflow: hidden;
     line-height: 1.4;
-    display: flex; /* Makes the whole card clickable/filterable */
+    display: flex;
+    /* Makes the whole card clickable/filterable */
     flex-direction: column;
 }
 
@@ -1932,12 +2027,14 @@ i.fas.fa-map-marker-alt {
     align-items: center;
     color: #888;
     font-size: 10px;
-    overflow: hidden; /* To simulate the image crop */
+    overflow: hidden;
+    /* To simulate the image crop */
 }
 
 .card-body {
     padding: 15px;
-    text-align: left; /* All text is left-aligned */
+    text-align: left;
+    /* All text is left-aligned */
 }
 
 .card-body h3 {
@@ -1955,7 +2052,8 @@ i.fas.fa-map-marker-alt {
 }
 
 .price {
-    color: #c00000; /* Dominant Red Color */
+    color: #c00000;
+    /* Dominant Red Color */
     font-weight: bold;
     font-size: 16px;
     margin: 5px 0 10px 0;
@@ -1965,7 +2063,8 @@ i.fas.fa-map-marker-alt {
     font-size: 12px;
     color: #666;
     margin: 5px 0;
-    height: 3em; /* Constraint for multiline text */
+    height: 3em;
+    /* Constraint for multiline text */
     overflow: hidden;
     line-height: 1.5;
 }
@@ -2005,7 +2104,7 @@ i.fas.fa-map-marker-alt {
 
 .listings-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
@@ -2020,7 +2119,8 @@ i.fas.fa-map-marker-alt {
 
 /* Rule to hide cards based on filter (used by JS) */
 .listing-card.hidden {
-    display: none !important; /* Use !important to override grid display */
+    display: none !important;
+    /* Use !important to override grid display */
 }
 
 /* ... (Listing card styles remain the same) ... */
@@ -2034,7 +2134,8 @@ i.fas.fa-map-marker-alt {
 }
 
 #load-more-btn {
-    background-color: #c00000; /* Dominant Red Color */
+    background-color: #c00000;
+    /* Dominant Red Color */
     color: white;
     border: none;
     padding: 12px 30px;
@@ -2059,21 +2160,24 @@ i.fas.fa-map-marker-alt {
 
 @media (max-width: 600px) {
     .container {
-        width: 100%; /* Full width for the container */
-        padding: 0 10px; /* Padding applied directly to the container */
+        width: 100%;
+        /* Full width for the container */
+        padding: 0 10px;
+        /* Padding applied directly to the container */
     }
 
     /* Sub-Navigation (Tabs) */
     .sub-nav {
         width: 100%;
         margin: 20px 0 15px 0;
-        padding: 10px 10px; /* Add padding inside the scrollable container */
-        gap: 20px; 
-        
+        padding: 10px 10px;
+        /* Add padding inside the scrollable container */
+        gap: 20px;
+
         /* Ensure horizontal scrolling is visible if needed */
         overflow-x: auto;
     }
-    
+
     .sub-nav-item {
         font-size: 14px;
     }
@@ -2085,16 +2189,17 @@ i.fas.fa-map-marker-alt {
         gap: 15px;
         padding: 0 10px;
     }
-    
+
     /* Listing Card Adjustments */
     .listing-card {
         margin: 0;
     }
 
     .card-image {
-        height: 150px; /* Slightly smaller image area */
+        height: 150px;
+        /* Slightly smaller image area */
     }
-    
+
     .card-body h3 {
         font-size: 16px;
     }
@@ -2112,14 +2217,15 @@ i.fas.fa-map-marker-alt {
 
 /* Blog section start */
 
-.text-wrapper{
+.text-wrapper {
     margin-bottom: 30px;
     padding-left: 20px;
 }
 
 .blog-section {
     padding: 60px 25px;
-    max-width: 1200px; /* Max width for the entire section */
+    max-width: 1200px;
+    /* Max width for the entire section */
     margin: 0 auto;
 }
 
@@ -2129,7 +2235,8 @@ i.fas.fa-map-marker-alt {
     display: grid;
     /* Create 3 equal columns with a gap */
     grid-template-columns: repeat(3, 1fr);
-    gap: 50px; /* Gap between cards */
+    gap: 50px;
+    /* Gap between cards */
 }
 
 /* Make it responsive for smaller screens */
@@ -2151,9 +2258,12 @@ i.fas.fa-map-marker-alt {
 
 .blog-card {
     background-color: #fff;
-    border-radius: 12px; /* Subtle rounded corners */
-    overflow: hidden; /* Ensures the image respects border-radius */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow for lift */
+    border-radius: 12px;
+    /* Subtle rounded corners */
+    overflow: hidden;
+    /* Ensures the image respects border-radius */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    /* Subtle shadow for lift */
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease;
@@ -2161,7 +2271,8 @@ i.fas.fa-map-marker-alt {
 }
 
 .blog-card:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
+    transform: translateY(-5px);
+    /* Lift effect on hover */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -2177,7 +2288,8 @@ i.fas.fa-map-marker-alt {
 .card-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image covers the area */
+    object-fit: cover;
+    /* Ensures the image covers the area */
 }
 
 /* --- Content Styling --- */
@@ -2186,7 +2298,8 @@ i.fas.fa-map-marker-alt {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Ensures content area takes up remaining space */
+    flex-grow: 1;
+    /* Ensures content area takes up remaining space */
 }
 
 .card-meta-top {
@@ -2197,8 +2310,10 @@ i.fas.fa-map-marker-alt {
 }
 
 .card-tag {
-    background-color: #e0f0ff; /* Light blue background for the tag */
-    color: #007bff; /* Primary blue color for text */
+    background-color: #e0f0ff;
+    /* Light blue background for the tag */
+    color: #007bff;
+    /* Primary blue color for text */
     padding: 4px 10px;
     border-radius: 6px;
     font-size: 0.75rem;
@@ -2214,7 +2329,8 @@ i.fas.fa-map-marker-alt {
 .card-title {
     font-size: 20px;
     font-weight: 700;
-    color: #1f3255; /* Dark blue/black for title */
+    color: #1f3255;
+    /* Dark blue/black for title */
     margin-top: 0px;
     padding-top: 10px;
     margin-bottom: 5px;
@@ -2232,9 +2348,11 @@ i.fas.fa-map-marker-alt {
 .card-author {
     display: flex;
     align-items: center;
-    margin-top: auto; /* Pushes the author block to the bottom of the card */
+    margin-top: auto;
+    /* Pushes the author block to the bottom of the card */
     padding-top: 15px;
-    border-top: 1px solid #eee; /* Separator line */
+    border-top: 1px solid #eee;
+    /* Separator line */
 }
 
 .author-avatar {
@@ -2265,13 +2383,13 @@ i.fas.fa-map-marker-alt {
 
 /* start contact us section */
 
-*{
+* {
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
 }
 
-.contact-box{
+.contact-box {
     max-width: 1100px;
     margin: 30px auto;
     padding: 40px 30px;
@@ -2282,7 +2400,7 @@ i.fas.fa-map-marker-alt {
     align-items: center;
 }
 
-.contact-info{
+.contact-info {
     background-color: #ac0000;
     color: #fff;
     height: 446px;
@@ -2301,19 +2419,19 @@ i.fas.fa-map-marker-alt {
     padding-bottom: 10px;
 }
 
-.fa-phone-alt:before{
+.fa-phone-alt:before {
     margin: 10px;
 }
 
-.fa-envelope:before{
+.fa-envelope:before {
     margin: 10px;
 }
 
-.fa-map-marker-alt{
+.fa-map-marker-alt {
     margin: 10px;
 }
 
-.info-item{
+.info-item {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -2426,10 +2544,13 @@ textarea:focus {
 /* --- Footer Section --- */
 .main-footer {
     /* Use a dark background color matching the image */
-    background-color: #2c3034; 
-    color: #ffffff; /* White text color */
-    padding-top: 10px 0; /* Add vertical padding */
-    font-family: Arial, sans-serif; /* Use a clean, readable font */
+    background-color: #2c3034;
+    color: #ffffff;
+    /* White text color */
+    padding-top: 10px 0;
+    /* Add vertical padding */
+    font-family: Arial, sans-serif;
+    /* Use a clean, readable font */
 }
 
 /* Container for main content */
@@ -2439,24 +2560,29 @@ textarea:focus {
     padding: 40px 20px;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    gap: 30px; /* Space between columns */
+    flex-wrap: wrap;
+    /* Allow wrapping on smaller screens */
+    gap: 30px;
+    /* Space between columns */
 }
 
 /* Individual Column Styling */
 .footer-col {
-    flex: 1; /* Distribute space relatively */
-    min-width: 250px; /* Ensure columns don't get too narrow */
+    flex: 1;
+    /* Distribute space relatively */
+    min-width: 250px;
+    /* Ensure columns don't get too narrow */
 }
 
 /* Logo Column */
 .logo-col {
-    max-width: 300px; /* Control width of the logo/about column */
+    max-width: 300px;
+    /* Control width of the logo/about column */
 }
 
 .footer-logo img {
     /* Assuming the image is a logo icon */
-    max-width: 180px; 
+    max-width: 180px;
     height: auto;
     /* You may need to replace placeholder-logo.png with the actual logo image and size it correctly */
 }
@@ -2465,7 +2591,8 @@ textarea:focus {
     font-size: 14px;
     line-height: 1.6;
     margin-top: 15px;
-    color: #b0b0b0; /* Slightly muted white for body text */
+    color: #b0b0b0;
+    /* Slightly muted white for body text */
 }
 
 /* Heading Styling (Quick Menu, Contact Us, News Letter) */
@@ -2474,7 +2601,8 @@ textarea:focus {
     font-weight: bold;
     margin-bottom: 20px;
     color: #ffffff;
-    text-transform: uppercase; /* Match the capitalized look */
+    text-transform: uppercase;
+    /* Match the capitalized look */
 }
 
 /* Quick Menu and Contact Us Links */
@@ -2489,7 +2617,8 @@ textarea:focus {
 }
 
 .footer-links a {
-    color: #b0b0b0; /* Link text color */
+    color: #b0b0b0;
+    /* Link text color */
     text-decoration: none;
     font-size: 14px;
     transition: color 0.3s, text-decoration 0.3s;
@@ -2497,8 +2626,10 @@ textarea:focus {
 
 /* Menu Hover Effect */
 .footer-links a:hover {
-    color: #ffffff; /* Brighter white on hover */
-    text-decoration: underline; /* Underline on hover as requested */
+    color: #ffffff;
+    /* Brighter white on hover */
+    text-decoration: underline;
+    /* Underline on hover as requested */
 }
 
 /* Contact Us Styling */
@@ -2512,7 +2643,8 @@ textarea:focus {
 
 .contact-item i {
     margin-right: 10px;
-    color: #ffffff; /* Icon color */
+    color: #ffffff;
+    /* Icon color */
     font-size: 16px;
 }
 
@@ -2523,21 +2655,24 @@ textarea:focus {
 }
 
 .social-links a {
-    color: #ffffff; /* White icon color */
+    color: #ffffff;
+    /* White icon color */
     font-size: 16px;
     width: 30px;
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #555; /* Light border around social icons */
-    border-radius: 50%; /* Make them circular */
+    border: 1px solid #555;
+    /* Light border around social icons */
+    border-radius: 50%;
+    /* Make them circular */
     transition: background-color 0.3s, border-color 0.3s;
 }
 
 .social-links a:hover {
     /* Assuming a red/pink color from the logo and button in the image */
-    background-color: #d13038; 
+    background-color: #d13038;
     border-color: #d13038;
 }
 
@@ -2550,23 +2685,25 @@ textarea:focus {
 
 .newsletter-form {
     display: flex;
-    max-width: 300px; /* Constrain the width for alignment */
+    max-width: 300px;
+    /* Constrain the width for alignment */
 }
 
 .newsletter-form input[type="email"] {
     flex-grow: 1;
     padding: 10px 15px;
     border: none;
-    border-radius: 0; /* Remove default border/radius */
+    border-radius: 0;
+    /* Remove default border/radius */
     outline: none;
     /* Use a light text color against the dark background */
-    color: #333; 
+    color: #333;
     font-size: 14px;
 }
 
 .newsletter-form button {
     /* Match the red/pink color in the reference image */
-    background-color: #d13038; 
+    background-color: #d13038;
     color: #ffffff;
     border: none;
     padding: 10px 15px;
@@ -2576,7 +2713,8 @@ textarea:focus {
 }
 
 .newsletter-form button:hover {
-    background-color: #b0242b; /* Slightly darker on hover */
+    background-color: #b0242b;
+    /* Slightly darker on hover */
 }
 
 .newsletter-form button i {
@@ -2585,7 +2723,8 @@ textarea:focus {
 
 /* Footer Bottom Separator Line */
 .footer-bottom-line {
-    border-top: 1px solid #444; /* Darker line for separation */
+    border-top: 1px solid #444;
+    /* Darker line for separation */
     margin-top: 0px;
     width: 100%;
     text-align: center;
