@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useContacts } from '../context/ContactContext';
 
 const Contact = () => {
+    const { addContact } = useContacts();
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -20,9 +22,22 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        // Add contact to context (will appear in admin dashboard)
+        addContact(formData);
+
         console.log('Contact form submitted:', formData);
-        // Add your form submission logic here
-        alert('Message sent successfully!');
+        alert('Message sent successfully! Our team will contact you soon.');
+
+        // Reset form
+        setFormData({
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            service: 'web-design',
+            message: ''
+        });
     };
 
     return (
