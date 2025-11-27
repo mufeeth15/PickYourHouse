@@ -14,52 +14,60 @@ export const useContacts = () => {
 
 // Provider Component
 export const ContactProvider = ({ children }) => {
-    const [contacts, setContacts] = useState([
-        {
-            id: 1,
-            name: 'John Doe',
-            email: 'john@example.com',
-            phone: '+1 234 567 8900',
-            subject: 'Property Inquiry',
-            message: 'Interested in 2BHK flat',
-            service: '2BHK Flat',
-            date: new Date().toISOString().split('T')[0],
-            status: 'New'
-        },
-        {
-            id: 2,
-            name: 'Jane Smith',
-            email: 'jane@example.com',
-            phone: '+1 234 567 8901',
-            subject: 'Viewing Request',
-            message: 'Want to schedule a viewing',
-            service: '3BHK Flat',
-            date: new Date().toISOString().split('T')[0],
-            status: 'New'
-        },
-        {
-            id: 3,
-            name: 'Mike Johnson',
-            email: 'mike@example.com',
-            phone: '+1 234 567 8902',
-            subject: 'General Question',
-            message: 'Questions about pricing',
-            service: '1BHK Flat',
-            date: new Date(Date.now() - 86400000).toISOString().split('T')[0],
-            status: 'New'
-        },
-        {
-            id: 4,
-            name: 'Sarah Williams',
-            email: 'sarah@example.com',
-            phone: '+1 234 567 8903',
-            subject: 'Investment Inquiry',
-            message: 'Looking for investment opportunities',
-            service: 'Other',
-            date: new Date(Date.now() - 86400000).toISOString().split('T')[0],
-            status: 'New'
-        }
-    ]);
+    const [contacts, setContacts] = useState(() => {
+        const savedContacts = localStorage.getItem('contacts');
+        return savedContacts ? JSON.parse(savedContacts) : [
+            {
+                id: 1,
+                name: 'John Doe',
+                email: 'john@example.com',
+                phone: '+1 234 567 8900',
+                subject: 'Property Inquiry',
+                message: 'Interested in 2BHK flat',
+                service: '2BHK Flat',
+                date: new Date().toISOString().split('T')[0],
+                status: 'New'
+            },
+            {
+                id: 2,
+                name: 'Jane Smith',
+                email: 'jane@example.com',
+                phone: '+1 234 567 8901',
+                subject: 'Viewing Request',
+                message: 'Want to schedule a viewing',
+                service: '3BHK Flat',
+                date: new Date().toISOString().split('T')[0],
+                status: 'New'
+            },
+            {
+                id: 3,
+                name: 'Mike Johnson',
+                email: 'mike@example.com',
+                phone: '+1 234 567 8902',
+                subject: 'General Question',
+                message: 'Questions about pricing',
+                service: '1BHK Flat',
+                date: new Date(Date.now() - 86400000).toISOString().split('T')[0],
+                status: 'New'
+            },
+            {
+                id: 4,
+                name: 'Sarah Williams',
+                email: 'sarah@example.com',
+                phone: '+1 234 567 8903',
+                subject: 'Investment Inquiry',
+                message: 'Looking for investment opportunities',
+                service: 'Other',
+                date: new Date(Date.now() - 86400000).toISOString().split('T')[0],
+                status: 'New'
+            }
+        ];
+    });
+
+    // Save to localStorage whenever contacts change
+    React.useEffect(() => {
+        localStorage.setItem('contacts', JSON.stringify(contacts));
+    }, [contacts]);
 
     // Add new contact
     const addContact = (contactData) => {

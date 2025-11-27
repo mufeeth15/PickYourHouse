@@ -12,6 +12,7 @@ import Blogs from './pages/Blogs';
 import Contact from './pages/Contact';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminLogin from './pages/admin/AdminLogin';
+import ProtectedRoute from './components/auth/ProtectedRoute';
 import './index.css';
 import './mobile-responsive.css';
 
@@ -44,7 +45,11 @@ function AppContent() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin" element={
+          <ProtectedRoute>
+            <AdminDashboard />
+          </ProtectedRoute>
+        } />
       </Routes>
       {!isAdminRoute && <Footer />}
     </div>

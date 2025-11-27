@@ -176,6 +176,8 @@
     display: flex;
     gap: 1rem;
     align-items: flex-start;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
 .info-item i {
@@ -365,6 +367,8 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
+    margin-top: 20px;
+
 }
 
 .info-item {
