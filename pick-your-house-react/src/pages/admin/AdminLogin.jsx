@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/admin-login.css';
+import '../../styles/admin-login.css';
 
 const AdminLogin = () => {
     const [email, setEmail] = useState('');

@@ -1,11 +1,11 @@
 import React from 'react';
-import Hero from '../components/Hero';
-import SearchFilter from '../components/SearchFilter';
-import PropertyDiscovery from '../components/PropertyDiscovery';
-import ExclusiveHighlight from '../components/ExclusiveHighlight';
-import FeaturedSell from '../components/FeaturedSell';
-import DreamHome from '../components/DreamHome';
-import FAQ from '../components/FAQ';
+import Hero from '../components/home/Hero';
+import SearchFilter from '../components/home/SearchFilter';
+import PropertyDiscovery from '../components/home/PropertyDiscovery';
+import ExclusiveHighlight from '../components/home/ExclusiveHighlight';
+import FeaturedSell from '../components/home/FeaturedSell';
+import DreamHome from '../components/home/DreamHome';
+import FAQ from '../components/home/FAQ';
 
 const Home = () => {
     return (

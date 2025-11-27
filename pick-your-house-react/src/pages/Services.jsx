@@ -59,7 +59,11 @@ const Services = () => {
                 {visibleListings.map((listing) => (
                     <div key={listing.id} className={`listing-card ${listing.category} all`}>
                         <div className={listing.id === 1 || listing.id === 6 ? 'card-image-1' : 'card-image'}>
-                            <img src="/1183405_20-350x350.jpg" alt={listing.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            <img
+                                src={listing.image || "/1183405_20-350x350.jpg"}
+                                alt={listing.title}
+                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            />
                         </div>
                         <div className="card-body">
                             <h3>{listing.title}</h3>

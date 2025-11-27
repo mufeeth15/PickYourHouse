@@ -3,15 +3,15 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { ContactProvider } from './context/ContactContext';
 import { UserProvider } from './context/UserContext';
 import { PropertyProvider } from './context/PropertyContext';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Blogs from './pages/Blogs';
 import Contact from './pages/Contact';
-import AdminDashboard from './pages/AdminDashboard';
-import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminLogin from './pages/admin/AdminLogin';
 import './index.css';
 import './mobile-responsive.css';
 

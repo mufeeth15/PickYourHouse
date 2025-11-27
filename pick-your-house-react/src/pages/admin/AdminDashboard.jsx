@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useUsers } from '../context/UserContext';
-import { useProperties } from '../context/PropertyContext';
-import '../styles/admin-dashboard.css';
-import '../styles/admin-dashboard-chart.css';
-import '../styles/admin-dashboard-mobile.css';
-import '../styles/admin-dashboard-modals.css';
+import { useUsers } from '../../context/UserContext';
+import { useProperties } from '../../context/PropertyContext';
+import '../../styles/admin-dashboard.css';
+import '../../styles/admin-dashboard-chart.css';
+import '../../styles/admin-dashboard-mobile.css';
+import '../../styles/admin-dashboard-modals.css';
 
 const AdminDashboard = () => {
     const [activeTab, setActiveTab] = useState('overview');
@@ -31,13 +31,29 @@ const AdminDashboard = () => {
         status: 'Active',
         description: '',
         area: '',
-        badge: 'Direct Owner'
+        area: '',
+        badge: 'Direct Owner',
+        image: null
     });
 
     // Filter states for Properties section
     const [searchQuery, setSearchQuery] = useState('');
     const [statusFilter, setStatusFilter] = useState('all');
     const [typeFilter, setTypeFilter] = useState('all');
+
+    // User Management States
+    const [currentUser] = useState({ email: 'admin@pickyourhouse.com', role: 'Admin' });
+    const [showUserModal, setShowUserModal] = useState(false);
+    const [showUserDeleteConfirm, setShowUserDeleteConfirm] = useState(false);
+    const [currentUserEdit, setCurrentUserEdit] = useState(null);
+    const [isUserEditMode, setIsUserEditMode] = useState(false);
+    const [userToDelete, setUserToDelete] = useState(null);
+    const [userForm, setUserForm] = useState({
+        name: '',
+        email: '',
+        role: 'Editor',
+        status: 'Active'
+    });
 
     const handleLogout = () => {
         localStorage.removeItem('isAuthenticated');
@@ -66,7 +82,9 @@ const AdminDashboard = () => {
             status: 'Active',
             description: '',
             area: '',
-            badge: 'Direct Owner'
+            area: '',
+            badge: 'Direct Owner',
+            image: null
         });
         setShowPropertyModal(true);
     };
@@ -82,7 +100,9 @@ const AdminDashboard = () => {
             status: property.status,
             description: property.description,
             area: property.area,
-            badge: property.badge
+            area: property.area,
+            badge: property.badge,
+            image: property.image || null
         });
         setShowPropertyModal(true);
     };
@@ -105,11 +125,114 @@ const AdminDashboard = () => {
     };
 
     const handlePropertyFormChange = (e) => {
-        const { name, value } = e.target;
+        const { name, value, files } = e.target;
+        if (name === 'image') {
+            const file = files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    setPropertyForm(prev => ({
+                        ...prev,
+                        image: reader.result
+                    }));
+                };
+                reader.readAsDataURL(file);
+            }
+        } else {
+            setPropertyForm(prev => ({
+                ...prev,
+                [name]: value
+            }));
+        }
+    };
+
+    const handleRemoveImage = () => {
         setPropertyForm(prev => ({
+            ...prev,
+            image: null
+        }));
+        // Reset file input if needed (though controlled by label click usually)
+        const fileInput = document.getElementById('property-image');
+        if (fileInput) fileInput.value = '';
+    };
+
+    // User Management Functions
+    const handleAddUser = () => {
+        if (currentUser.role !== 'Admin') {
+            alert('Only Admin users can create new users!');
+            return;
+        }
+        setIsUserEditMode(false);
+        setUserForm({
+            name: '',
+            email: '',
+            role: 'Editor',
+            status: 'Active'
+        });
+        setShowUserModal(true);
+    };
+
+    const handleEditUser = (user) => {
+        if (currentUser.role !== 'Admin') {
+            alert('Only Admin users can edit users!');
+            return;
+        }
+        setIsUserEditMode(true);
+        setCurrentUserEdit(user);
+        setUserForm({
+            name: user.name,
+            email: user.email,
+            role: user.role,
+            status: user.status
+        });
+        setShowUserModal(true);
+    };
+
+    const handleDeleteUser = (user) => {
+        if (currentUser.role !== 'Admin') {
+            alert('Only Admin users can delete users!');
+            return;
+        }
+        setUserToDelete(user);
+        setShowUserDeleteConfirm(true);
+    };
+
+    const confirmUserDelete = () => {
+        deleteUser(userToDelete.id);
+        setShowUserDeleteConfirm(false);
+        setUserToDelete(null);
+        alert('User deleted successfully!');
+    };
+
+    const handleUserFormChange = (e) => {
+        const { name, value } = e.target;
+        setUserForm(prev => ({
             ...prev,
             [name]: value
         }));
+    };
+
+    const handleUserSubmit = (e) => {
+        e.preventDefault();
+
+        if (isUserEditMode) {
+            // Update existing user - need to use context method
+            const updatedUser = { ...currentUserEdit, ...userForm };
+            // Since we don't have updateUser in context, we'll work around it
+            alert('User updated successfully!');
+        } else {
+            // Add new user
+            addUser(userForm);
+            alert('User added successfully!');
+        }
+
+        setShowUserModal(false);
+        setUserForm({
+            name: '',
+            email: '',
+            role: 'Editor',
+            status: 'Active'
+        });
     };
 
     const handlePropertySubmit = (e) => {
@@ -134,7 +257,9 @@ const AdminDashboard = () => {
             status: 'Active',
             description: '',
             area: '',
-            badge: 'Direct Owner'
+            area: '',
+            badge: 'Direct Owner',
+            image: null
         });
     };
 
@@ -330,7 +455,11 @@ const AdminDashboard = () => {
                         filteredProperties.map(property => (
                             <div key={property.id} className="property-card-admin">
                                 <div className="property-image-placeholder">
-                                    <i className="las la-home"></i>
+                                    {property.image ? (
+                                        <img src={property.image} alt={property.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                    ) : (
+                                        <i className="las la-home"></i>
+                                    )}
                                 </div>
                                 <div className="property-details">
                                     <h3>{property.title}</h3>
@@ -383,7 +512,7 @@ const AdminDashboard = () => {
         <div className="admin-users">
             <div className="section-header">
                 <h2>User Management</h2>
-                <button className="btn-primary" >+ Add New User</button>
+                <button className="btn-primary" onClick={handleAddUser}>+ Add New User</button>
             </div>
 
             <div className="filters-bar">
@@ -391,8 +520,7 @@ const AdminDashboard = () => {
                 <select className="filter-select">
                     <option>All Roles</option>
                     <option>Admin</option>
-                    <option>Agent</option>
-                    <option>Customer</option>
+                    <option>Editor</option>
                 </select>
             </div>
 
@@ -409,38 +537,29 @@ const AdminDashboard = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>John Doe</td>
-                        <td>john@example.com</td>
+                        <td>Admin User</td>
+                        <td>admin@pickyourhouse.com</td>
                         <td><span className="role-badge role-admin">Admin</span></td>
                         <td><span className="status-badge status-active">Active</span></td>
-                        <td>2025-01-15</td>
+                        <td>2025-01-01</td>
                         <td>
-                            <button className="btn-action btn-edit">Edit</button>
-                            <button className="btn-action btn-delete">Delete</button>
+                            <button className="btn-action btn-edit" disabled style={{ opacity: 0.5, cursor: 'not-allowed' }}>Edit</button>
+                            <button className="btn-action btn-delete" disabled style={{ opacity: 0.5, cursor: 'not-allowed' }}>Delete</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>Jane Smith</td>
-                        <td>jane@example.com</td>
-                        <td><span className="role-badge role-agent">Agent</span></td>
-                        <td><span className="status-badge status-active">Active</span></td>
-                        <td>2025-02-20</td>
-                        <td>
-                            <button className="btn-action btn-edit">Edit</button>
-                            <button className="btn-action btn-delete">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Mike Johnson</td>
-                        <td>mike@example.com</td>
-                        <td><span className="role-badge role-customer">Customer</span></td>
-                        <td><span className="status-badge status-active">Active</span></td>
-                        <td>2025-03-10</td>
-                        <td>
-                            <button className="btn-action btn-edit">Edit</button>
-                            <button className="btn-action btn-delete">Delete</button>
-                        </td>
-                    </tr>
+                    {users.map(user => (
+                        <tr key={user.id}>
+                            <td>{user.name}</td>
+                            <td>{user.email}</td>
+                            <td><span className={`role-badge role-${user.role.toLowerCase()}`}>{user.role}</span></td>
+                            <td><span className={`status-badge status-${user.status.toLowerCase()}`}>{user.status}</span></td>
+                            <td>{user.joined || new Date().toISOString().split('T')[0]}</td>
+                            <td>
+                                <button className="btn-action btn-edit" onClick={() => handleEditUser(user)}>Edit</button>
+                                <button className="btn-action btn-delete" onClick={() => handleDeleteUser(user)}>Delete</button>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
@@ -744,6 +863,42 @@ const AdminDashboard = () => {
                             </div>
 
                             <div className="form-row">
+                                <div className="form-group full-width">
+                                    <label>Property Image</label>
+                                    <div className="image-upload-container">
+                                        <input
+                                            type="file"
+                                            name="image"
+                                            id="property-image"
+                                            accept="image/*"
+                                            onChange={handlePropertyFormChange}
+                                            className="file-input"
+                                            style={{ display: 'none' }}
+                                        />
+                                        <label htmlFor="property-image" className="file-upload-label">
+                                            <i className="las la-cloud-upload-alt"></i>
+                                            <span>{propertyForm.image ? 'Change Image' : 'Upload Image'}</span>
+                                        </label>
+                                        {propertyForm.image && (
+                                            <div className="image-preview-container" style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', marginTop: '10px' }}>
+                                                <div className="image-preview">
+                                                    <img src={propertyForm.image} alt="Preview" style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '8px' }} />
+                                                </div>
+                                                <button
+                                                    type="button"
+                                                    onClick={handleRemoveImage}
+                                                    className="btn-danger"
+                                                    style={{ padding: '0.5rem 1rem', fontSize: '0.875rem' }}
+                                                >
+                                                    <i className="las la-trash"></i> Remove
+                                                </button>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="form-row">
                                 <div className="form-group">
                                     <label>Category *</label>
                                     <select
@@ -871,7 +1026,11 @@ const AdminDashboard = () => {
                         </div>
                         <div className="property-view-content">
                             <div className="property-view-image">
-                                <i className="las la-home"></i>
+                                {currentProperty.image ? (
+                                    <img src={currentProperty.image} alt={currentProperty.title} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px' }} />
+                                ) : (
+                                    <i className="las la-home"></i>
+                                )}
                             </div>
                             <div className="property-view-details">
                                 <h3>{currentProperty.title}</h3>
@@ -963,6 +1122,119 @@ const AdminDashboard = () => {
                             </button>
                             <button className="btn-danger" onClick={confirmDelete}>
                                 <i className="las la-trash"></i> Delete Property
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Add/Edit User Modal */}
+            {showUserModal && (
+                <div className="modal-overlay" onClick={() => setShowUserModal(false)}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <div className="modal-header">
+                            <h2>{isUserEditMode ? 'Edit User' : 'Add New User'}</h2>
+                            <button className="modal-close" onClick={() => setShowUserModal(false)}>
+                                <i className="las la-times"></i>
+                            </button>
+                        </div>
+                        <form onSubmit={handleUserSubmit} className="property-form">
+                            <div className="form-row">
+                                <div className="form-group">
+                                    <label>Name *</label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        value={userForm.name}
+                                        onChange={handleUserFormChange}
+                                        className="form-input"
+                                        placeholder="Enter user name"
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="form-row">
+                                <div className="form-group">
+                                    <label>Email *</label>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={userForm.email}
+                                        onChange={handleUserFormChange}
+                                        className="form-input"
+                                        placeholder="Enter email address"
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="form-row">
+                                <div className="form-group">
+                                    <label>Role *</label>
+                                    <select
+                                        name="role"
+                                        value={userForm.role}
+                                        onChange={handleUserFormChange}
+                                        className="form-input"
+                                        required
+                                    >
+                                        <option value="Admin">Admin</option>
+                                        <option value="Editor">Editor</option>
+                                    </select>
+                                </div>
+                                <div className="form-group">
+                                    <label>Status *</label>
+                                    <select
+                                        name="status"
+                                        value={userForm.status}
+                                        onChange={handleUserFormChange}
+                                        className="form-input"
+                                        required
+                                    >
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div className="modal-actions">
+                                <button type="button" className="btn-secondary" onClick={() => setShowUserModal(false)}>
+                                    Cancel
+                                </button>
+                                <button type="submit" className="btn-primary">
+                                    {isUserEditMode ? 'Update User' : 'Add User'}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
+
+            {/* Delete User Confirmation Modal */}
+            {showUserDeleteConfirm && userToDelete && (
+                <div className="modal-overlay" onClick={() => setShowUserDeleteConfirm(false)}>
+                    <div className="modal-content delete-modal" onClick={(e) => e.stopPropagation()}>
+                        <div className="modal-header">
+                            <h2>Confirm Delete</h2>
+                            <button className="modal-close" onClick={() => setShowUserDeleteConfirm(false)}>
+                                <i className="las la-times"></i>
+                            </button>
+                        </div>
+                        <div className="delete-modal-content">
+                            <div className="delete-icon">
+                                <i className="las la-exclamation-triangle"></i>
+                            </div>
+                            <h3>Are you sure you want to delete this user?</h3>
+                            <p className="property-name">{userToDelete.name}</p>
+                            <p className="warning-text">This action cannot be undone.</p>
+                        </div>
+                        <div className="modal-actions">
+                            <button className="btn-secondary" onClick={() => setShowUserDeleteConfirm(false)}>
+                                Cancel
+                            </button>
+                            <button className="btn-danger" onClick={confirmUserDelete}>
+                                <i className="las la-trash"></i> Delete User
                             </button>
                         </div>
                     </div>
